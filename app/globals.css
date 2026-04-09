@@ -1,0 +1,48 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #07090f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.particle::before,
+.particle::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(37, 213, 229, 0.22) 1px, transparent 1px);
+  background-size: 45px 45px;
+  animation: drift 18s linear infinite;
+}
+
+.particle::after {
+  background-size: 70px 70px;
+  opacity: 0.5;
+  animation-duration: 24s;
+  animation-direction: reverse;
+}
+
+@keyframes drift {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-80px);
+  }
+}
